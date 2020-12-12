@@ -19,4 +19,5 @@ with open(os.path.join(os.path.realpath(os.path.dirname(__file__)), "setup.py"),
 
 os.chdir(os.path.realpath(os.path.dirname(__file__)))
 
+os.system("python setup.py sdist bdist_wheel")
 _ = subprocess.Popen(["twine", "upload", "dist/*"], stdin=subprocess.PIPE, stdout=subprocess.PIPE).communicate(input="USERNAME\nPASSWORD\n")
