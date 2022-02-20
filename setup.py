@@ -1,22 +1,26 @@
+import os
 import setuptools
 
-with open("README.md") as f:
+PARDIR = os.path.realpath(os.path.dirname(__file__))
+
+with open(os.path.join(PARDIR, "README.md")) as f:
     long_description = f.read()
 
-with open("requirements.txt") as f:
+with open(os.path.join(PARDIR, "requirements.txt")) as f:
     reqs = f.read().strip().split("\n")
 
+
 setuptools.setup(
-    name="module",
-    version="0.0.1",
+    name="tensornn",
+    version=os.getenv("PYPI_VERSION").split("/")[-1].strip(),
     author="Arjun Sahlot",
     author_email="iarjun.sahlot@gmail.com",
-    description="Template for module",
+    description="A module template.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="GNU GPL v3",
     url="https://github.com/ArjunSahlot/",
-    keywords=["Module"],
+    keywords=["module"],
     py_modules=["module"],
     packages=setuptools.find_packages(),
     install_requires=reqs,
